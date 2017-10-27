@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>index</title>
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+    <script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.1.2/weui.min.js"></script>
+    <script src="/js/echarts.common.min.js"></script>
+    <script src="/js/Chart.bundle.js"></script>
+    <script src="/js/utils.js"></script>
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .chart-container {
+            width: 500px;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="weui-tab" id="tab">
+    <div class="weui-navbar">
+        <div id="one" class="weui-navbar__item weui-bar__item_on">
+            用电
+        </div>
+        <div class="weui-navbar__item">
+            线损
+        </div>
+        <div class="weui-navbar__item">
+            电压
+        </div>
+        <div class="weui-navbar__item">
+            功率
+        </div>
+        <div class="weui-navbar__item">
+            排名
+        </div>
+        <div class="weui-navbar__item">
+            6
+        </div>
+        <div class="weui-navbar__item">
+            7
+        </div>
+        <div class="weui-navbar__item">
+            8
+        </div>
+        <div class="weui-navbar__item">
+            9
+        </div>
+
+    </div>
+    <div class="weui-tab__panel">
+        <div class="weui-tab__content">
+            <div class="container" id="container" style="width: 80%;margin-left: auto;margin-right: auto">
+                <div class="chart-container">
+
+                    <canvas id="canvas"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="canvas2"></canvas>
+                </div>
+            </div>
+            <!--<div  id="main" style="width: 400px;height:400px;margin-left: auto;margin-right: auto"></div>-->
+
+        </div>
+        <div class="weui-tab__content">2</div>
+        <div class="weui-tab__content">3</div>
+        <div class="weui-tab__content">4</div>
+        <div class="weui-tab__content">5</div>
+        <div class="weui-tab__content">6</div>
+        <div class="weui-tab__content">7</div>
+        <div class="weui-tab__content">8</div>
+        <div class="weui-tab__content">9</div>
+    </div>
+</div>
+
+<script>
+    weui.tab('#tab', {
+        defaultIndex: 0,
+        onChange: function (index) {
+            console.log(index);
+        }
+    });
+</script>
+
+
+<script>
+    var color = Chart.helpers.color;
+    var barChartData = {
+        labels: ["一月", "二月", "三月", "四月", "五月", "六月", "七月"],
+        datasets: [{
+            label: 'Dataset 1',
+            backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+            borderColor: window.chartColors.blue,
+            borderWidth: 1,
+            data: [
+                10,
+                20,
+                30,
+                40,
+                50,
+                20,
+                10
+            ]
+        }],
+
+    };
+
+    function createConfig(lable) {
+        return {
+            labels: ["一月", "二月", "三月", "四月", "五月", "六月", "七月"],
+            datasets: [{
+                label: lable,
+                backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+                borderColor: window.chartColors.blue,
+                borderWidth: 1,
+                data: [
+                    10,
+                    20,
+                    30,
+                    40,
+                    50,
+                    20,
+                    10
+                ]
+            }],
+
+        };
+    }
+
+    window.onload = function () {
+
+        [{
+            id: 'canvas',
+            title: '总用电量统计图',
+            config: createConfig("用电量")
+        }, {
+            id: 'canvas2',
+            title: '楼栋用电量统计图',
+            config: createConfig("用电量")
+        }].forEach(function (details) {
+            var ctx = document.getElementById(details.id).getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: details.config,
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: details.title
+                    }
+                }
+            });
+        })
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{
+  "result": true,
+  "container": {
+    "bgColor": "ff0000",
+    "bgImage": "http://192.168.0.124:8080/img/yiloudeng.png",
+    "height": "768",
+    "width": "1280",
+    "title": "测试"
+  },
+  "elements": [
+    {
+      "type": "image",
+      "openUrl": "http://192.168.0.124:8080/img/his.png",
+      "href": "http://192.168.0.124:8080/img/his.png",
+      "closeUrl": "",
+      "x": 340,
+      "y": 10,
+      "x2": 304,
+      "y2": 24,
+      "width": 50,
+      "height": 50,
+      "radius": 0,
+      "status": true,
+      "channel_id": 43,
+      "title":"书房灯"
+    },
+    {
+      "color": "#ffff00",
+      "conId": 327,
+      "content": "",
+      "control": false,
+      "falseAlter": "#FF0000",
+      "fill": "#ff0000",
+      "fontFamily": "微软雅黑",
+      "fontSize": "32px",
+      "fontWeight": "bolder",
+      "height": 38,
+      "href": "",
+      "id": 5299,
+      "posLock": false,
+      "radius": 0,
+      "ruleId": 876,
+      "seq": 10,
+      "showBg": "0",
+      "signalFlag": "",
+      "signalName": "",
+      "stroke": "#000000",
+      "strokeDasharray": "0",
+      "strokeLinecap": "",
+      "strokeWidth": "1",
+      "trueAlter": "#00FF00",
+      "type": "text",
+      "width": 330,
+      "x": 475,
+      "x2": 448,
+      "y": 29,
+      "y2": 166
+    }
+  ]
+}

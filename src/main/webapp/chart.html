@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>Chart</title>
+    <!-- 引入 WeUI -->
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
+    <!-- 引入 ECharts 文件 -->
+    <script src="/js/echarts.common.min.js"></script>
+</head>
+<body>
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+   <div id="main" style="width: 600px;height:400px;"></div>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '日用电量'
+        },
+        tooltip: {},
+        legend: {
+            data:['用电量']
+        },
+        xAxis: {
+            data: ["1月","2月","3月","4月","5月","6月"]
+        },
+        yAxis: {},
+        series: [{
+            name: '用电量',
+            type: 'bar',
+            count: 8,
+            data: [0.01, 0.02, 0.03, 0.04, 0.08, 0.01]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>
