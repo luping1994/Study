@@ -11,7 +11,7 @@ var planData = {
         {
             "id": "wutai",
             "trueType": "beng",
-            "name": "定温出水电动阀",
+            "name": "dsa",
             "type": "controlImage",
             "height": 90,
             "width": 251,
@@ -22,23 +22,7 @@ var planData = {
             "y": 291,
             "title": "",
             "status": true,
-            "openUrl": "./img/plan/wutai.png",
-            "closeUrl": ""
-        }, {
-            "id": "wutai",
-            "trueType": "beng",
-            "name": "定温出水电动阀",
-            "type": "controlImage",
-            "height": 90,
-            "width": 251,
-            "radius": 0,
-            "house_id": 1,
-            "channel_id": 45,
-            "x": 249,
-            "y": 291,
-            "title": "",
-            "status": true,
-            "openUrl": "./img/plan/wutai.png",
+            "openUrl": "http://192.168.0.200:8080/qintian/img/plan/wutai.png",
             "closeUrl": ""
         }
     ]

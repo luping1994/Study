@@ -1,6 +1,6 @@
 //创建一张图片
 function createImage(data) {
-    var imageGroup = d3.select("svg")
+    var imageGroup = d3.select("#contentSvg")
         .append("g")
         .classed("ele", true)
         .data([data]);
@@ -34,6 +34,43 @@ function createImage(data) {
 
 }
 
+//创建一张图片
+function createControlImage(data) {
+    var imageGroup = d3.select("#contentSvg")
+        .append("g")
+        .classed("ele", true)
+        .data([data]);
+    imageGroup.append("image")
+        .classed("control-image", true)
+        .attr("x", function (d) {
+            return d.x
+        })
+        .attr("y", function (d) {
+            return d.y
+        })
+        .attr("width", function (d) {
+            return d.width
+        })
+        .attr("height", function (d) {
+            return d.height
+        })
+        .attr("xlink:href", function (d) {
+            if (d.status)
+                return d.openUrl;
+            return d.closeUrl;
+        });
+    // .attr("id", function (d) {
+    //     return d.id;
+    // });
+
+    imageGroup.on("click", openConfirmDialog);
+    // imageGroup.attr("transform", function (d) {
+    //     return "rotate(" + d.radius + "," + d.x2 + "," + d.y2 + ")";
+    // });
+
+
+}
+
 function openConfirmDialog() {
     
 }
@@ -41,7 +78,7 @@ function openConfirmDialog() {
 //创建元素
 function createElement(ele) {
     // if (ele.type == "image") {
-    createImage(ele);
+    createControlImage(ele);
     // }
 }
 
@@ -59,6 +96,8 @@ $(function () {
 });
 
 function init() {
+
+
     scale = $("body").width() / width;
     // $("#title").height(44*scale);
     // $("#bar").height(44*scale);
@@ -76,6 +115,7 @@ function init() {
     $("svg.designer").empty();
     elements = planData.elements;
     planData.elements.map(createElement);
+
 
 }
 
