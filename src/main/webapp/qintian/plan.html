@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="js/d3.v3.js"></script>
+    <script src="aui/script/aui-tab.js"></script>
+
+    <title>平面图</title>
+    <link href="aui/css/aui.css" rel="stylesheet"/>
+    <link href="css/st-qt-login.css" rel="stylesheet"/>
+    <link href="css/plan.css" rel="stylesheet"/>
+    <link href="aui/css/aui.css" rel="stylesheet"/>
+
+</head>
+<body>
+<div style="width: 100%;position: fixed;height: 100%;z-index: 100">
+    <div id="title" style="font-size: .8rem;width: 100%;color: white;text-align: center;padding: .5rem">
+        平面图
+    </div>
+    <div class="aui-tab" id="tab"
+         style="position: relative;z-index: 100;width: 100%;background-color: transparent;color: white;height: 2.2rem">
+        <div class="aui-tab-item ">
+            前厅<i style="margin-left: .2rem"
+               class="aui-iconfont aui-icon-down c-grey"></i></div>
+
+        <div class="aui-tab-item">
+            中厅<i style="margin-left: .2rem"
+               class="aui-iconfont aui-icon-down c-grey"></i></div>
+
+        <div class="aui-tab-item">后厅 <i style="margin-left: .2rem"
+                                        class="aui-iconfont aui-icon-down c-grey"></i></div>
+        <div class="aui-tab-item">舞台 <i style="margin-left: .2rem"
+                                        class="aui-iconfont aui-icon-down c-grey"></i></div>
+    </div>
+    <div id="content" style="background-color: #313645;width: 100%;height: 9rem;color: black;display: none">
+        <section class="aui-grid aui-margin-b-15" style="background-color: transparent">
+
+            <div class="aui-row">
+                <div class="aui-col-xs-4 ">
+                    <div class="aui-grid-label c-grey qt-c-light-open">吊灯</div>
+                </div>
+
+                <div class="aui-col-xs-4 ">
+                    <div class="aui-grid-label c-grey qt-c-light-open">吊灯3</div>
+                </div>
+
+
+                <div class="aui-col-xs-4">
+                    <div class="aui-grid-label c-grey qt-c-light-open">吊灯3</div>
+                </div>
+                <div class="aui-col-xs-4">
+                    <div class="aui-grid-label c-grey">吊灯4</div>
+                </div>
+                <div class="aui-col-xs-4">
+                    <div class="aui-grid-label c-grey">吊灯5</div>
+                </div>
+                <div class="aui-col-xs-4">
+                    <div class="aui-grid-label c-grey">吊灯6</div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<div class="full-frame" id="svgWrapper" >
+    <div class="full-wrapper">
+        <svg class="designer">
+
+        </svg>
+    </div>
+
+</div>
+<script src="js/jquery.js"></script>
+<script src="js/data.js"></script>
+
+<script src="js/plan_design.js"></script>
+<script src="js/floor_tab.js"></script>
+
+
+<script>
+    var currentIndex = 1;
+    var tab = new floorTab({
+        element: document.getElementById("tab"),
+        index: 1,
+        repeatClick: true
+    }, function (ret) {
+        if (ret.index == 1) {
+//            $("#content").html('前厅');
+
+        } else if (ret.index == 2) {
+//            $("#content").html('中厅');
+        } else if (ret.index == 3) {
+//            $("#content").html('后厅');
+        } else {
+//            $("#content").html('舞台');
+
+        }
+        if (currentIndex == ret.index) {
+            toggle();
+        } else {
+            if ($("#content").is(':hidden')) {
+                console.log("隐藏");
+                toggle();
+            }
+        }
+
+        currentIndex = ret.index;
+
+    });
+
+
+    function toggle() {
+        $("#content").animate({
+            height: 'toggle'
+        });
+    }
+</script>
+</body>
+</html>

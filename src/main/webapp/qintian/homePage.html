@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>首页</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body, .content {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .content {
+            background: transparent;
+        }
+
+        body {
+            background-image: url('img/homePage.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        .home-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+
+        }
+
+        .home-item {
+            background-color: transparent;
+        }
+    </style>
+
+    <link href="css/st-qt-login.css" rel="stylesheet"/>
+</head>
+<body>
+
+
+<div class="content" style="text-align: center">
+
+    <img id="logo" src='img/logo_homepage.png'
+         style="position: fixed ;width: 3.10666rem;height: 0.573333rem;left: 34.133333%;top: 6.9715%">
+
+
+    <img onclick="openScene()" id="scene" src='img/scene.png' class="home-item"
+         style="position: fixed ;width: 3.37rem;height: 1.93333rem;top: 19.1154%;left: 37.33333%">
+
+
+    <img onclick="openPlan()" id="plan" src='img/plan.png' class="home-item"
+         style="position: fixed ;width: 3.573333rem;height: 1.94666rem;left: 15.466666%;top:32.8335%">
+
+    <img
+            onclick="openMonitor()" id="moni" src='img/jiankong.png' class="home-item"
+            style="position: fixed ;width: 4.173333rem;height: 1.9333rem;left: 5.2%;top:50%">
+
+    <img
+            onclick="openLogs()" id="control" src='img/logs.png' class="home-item"
+            style="position: fixed ;width: 4.13333rem;height: 1.94666rem;left: 11.4666%;top:67.31634%">
+
+    <img
+            onclick="" id="profile" src='img/profile.png' class="home-item"
+            style="position: fixed ;width: 4.12rem;height: 1.93333rem;left:31.4666%;top:78.93553%">
+
+
+</div>
+<script src="js/flexible.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+    function openScene() {
+        window.location.href = "scene.html";
+    }
+
+    function openPlan() {
+        window.location.href = "plan.html";
+
+    }
+
+    function openMonitor() {
+        window.location.href = "html/monitor.html";
+
+    } function openLogs() {
+        window.location.href = "html/controlLogs.html";
+
+    }
+
+</script>
+</body>
+</html>
